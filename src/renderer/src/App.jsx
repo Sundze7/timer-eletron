@@ -1,4 +1,5 @@
 import './assets/main.css'
+import Timer from './components/Timer'
 import TopBar from './components/TopBar'
 import { useState } from 'react'
 function App() {
@@ -6,7 +7,9 @@ function App() {
   return (
     <>
       <TopBar />
-      <h1 className="text-2xl text-purple-500">Hello World</h1>
+      <div className="bg-black opacity-40 text-white">
+        <Timer />
+      </div>
     </>
   )
 }
