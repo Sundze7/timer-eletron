@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <TopBar />
-      <div className="bg-black opacity-40 text-white">
+      <div className="bg-black opacity-70 text-white p-3 rounded-b-xl">
         <Timer />
       </div>
     </>

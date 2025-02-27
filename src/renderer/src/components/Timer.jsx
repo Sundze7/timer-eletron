@@ -6,6 +6,7 @@ export default function Timer({ isOverlay }) {
   const [minutes, setMinutes] = useState(1)
   const [seconds, setSeconds] = useState(0)
   const [hours, setHours] = useState(0)
+  const [isActive, setIsActive] = useState(false)
   return (
     <div>
       {isEditing ? (
@@ -29,7 +30,7 @@ export default function Timer({ isOverlay }) {
             />
             <button
               onClick={() => setIsEditing(false)}
-              className="bg-blue-700 text-stone-200 px-12 rounded-lg text-lg items-center"
+              className="bg-lime-400 text-stone-200 px-12 rounded-lg text-lg items-center"
             >
               &#10004;
             </button>
@@ -37,8 +38,29 @@ export default function Timer({ isOverlay }) {
         </div>
       ) : (
         // Timer
-        <div className="flex justify-center">
-          <h1 className=" text-6xl">{`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</h1>
+        <div>
+          <div className="flex justify-center">
+            <h1 className="text-lime-400 text-6xl font-serif">{`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</h1>
+          </div>
+          <div id="timer-buttton">
+            {isActive ? (
+              <>
+                <button>Pause</button>
+                <button>Stop</button>
+              </>
+            ) : (
+              <>
+                <div className="flex justify-between items-center mx-5 text-4xl">
+                  <button onClick={() => setIsActive(true)} className="text-green-400">
+                    &#9658;
+                  </button>
+                  <button onClick={() => setIsEditing(true)} className="text-orange-300">
+                    &#9998;
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       )}
     </div>
