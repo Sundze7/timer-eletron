@@ -74,8 +74,25 @@ export default function Timer({ isOverlay }) {
           <div id="timer-buttton">
             {isActive ? (
               <>
-                <button>Pause</button>
-                <button>Stop</button>
+                <div className="flex justify-between items-center mx-5 text-4xl">
+                  <button
+                    onClick={() => setIsActive(false)}
+                    className="text-slate-200 text-2xl font-bold"
+                  >
+                    ||
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsActive(false)
+                      setHours(0)
+                      setMinutes(0)
+                      setSeconds(0)
+                    }}
+                    className="text-red-600"
+                  >
+                    &#9632;
+                  </button>
+                </div>
               </>
             ) : (
               <>
