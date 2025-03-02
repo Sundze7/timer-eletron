@@ -59,7 +59,7 @@ export default function Timer({ isOverlay }) {
             />
             <button
               onClick={() => setIsEditing(false)}
-              className="bg-lime-400 text-stone-200 px-12 rounded-lg text-lg items-center"
+              className="bg-lime-400 text-stone-200 px-16 mt-3 rounded-lg text-lg items-center"
             >
               &#10004;
             </button>
