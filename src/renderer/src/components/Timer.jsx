@@ -38,7 +38,7 @@ export default function Timer({ isOverlay }) {
       clearInterval(intervalId)
     }
     return () => clearInterval(intervalId) // prevent memory management issues
-  }, [isActive, hours, minutes, seconds])
+  }, [isActive, hours, minutes, seconds, audio])
 
   return (
     <div>
@@ -75,7 +75,7 @@ export default function Timer({ isOverlay }) {
           <div className="flex justify-center">
             <h1 className="text-lime-400 text-6xl font-serif">{`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</h1>
           </div>
-          <div id="timer-buttton">
+          <div id="timer-buttton" className={!isOverlay ? '' : 'hidden'}>
             {isActive ? (
               <>
                 <div className="flex justify-between items-center mx-5 text-4xl">
