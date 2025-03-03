@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import InputField from './InputField'
+import alarm from '../assets/sounds/alarm.mp3'
 
 export default function Timer({ isOverlay }) {
   const [isEditing, setIsEditing] = useState(true)
@@ -7,6 +8,8 @@ export default function Timer({ isOverlay }) {
   const [seconds, setSeconds] = useState(0)
   const [hours, setHours] = useState(0)
   const [isActive, setIsActive] = useState(false)
+
+  const audio = new Audio(alarm)
 
   useEffect(() => {
     let intervalId
@@ -17,6 +20,7 @@ export default function Timer({ isOverlay }) {
         } else {
           if (minutes === 0 && hours === 0) {
             //audio
+            audio.play()
             clearInterval(intervalId)
             setIsActive(false)
           } else {
@@ -59,7 +63,7 @@ export default function Timer({ isOverlay }) {
             />
             <button
               onClick={() => setIsEditing(false)}
-              className="bg-lime-400 text-stone-200 px-16 mt-3 rounded-lg text-lg items-center"
+              className="bg-lime-400 text-amber-900 px-16 mt-3 rounded-lg text-2xl items-center"
             >
               &#10004;
             </button>
