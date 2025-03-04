@@ -1,3 +1,4 @@
+// eslint-disable-next-line react/prop-types
 export default function InputField({ label, value, onChange, placeholder }) {
   const handlesInputChange = (e) => {
     const inputValue = e.target.value

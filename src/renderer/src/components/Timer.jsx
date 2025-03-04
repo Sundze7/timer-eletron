@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import InputField from './InputField'
 import alarm from '../assets/sounds/alarm.mp3'
 
+// eslint-disable-next-line react/prop-types
 export default function Timer({ isOverlay }) {
   const [isEditing, setIsEditing] = useState(true)
   const [minutes, setMinutes] = useState(1)
@@ -38,7 +39,8 @@ export default function Timer({ isOverlay }) {
       clearInterval(intervalId)
     }
     return () => clearInterval(intervalId) // prevent memory management issues
-  }, [isActive, hours, minutes, seconds, audio])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isActive, hours, minutes, seconds])
 
   return (
     <div>
